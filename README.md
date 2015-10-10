@@ -1,15 +1,17 @@
-# Aub::PayrollFile
+# AUB::Payroll
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/aub/payroll_file`. To experiment with that code, run `bin/console` for an interactive prompt.
+[![Gem Version](https://badge.fury.io/rb/aub-payroll.svg)](http://badge.fury.io/rb/aub-payroll)
+[![Code Climate](https://codeclimate.com/github/payrollhero/aub-payroll/badges/gpa.svg)](https://codeclimate.com/github/payrollhero/aub-payroll)
+[![Build Status](https://travis-ci.org/payrollhero/aub-payroll.svg)](https://travis-ci.org/payrollhero/aub-payroll)
 
-TODO: Delete this and the text above, and describe your gem
+An AUB Payroll File Generator.
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'aub-payroll_file'
+gem 'aub-payroll'
 ```
 
 And then execute:
@@ -18,11 +20,26 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install aub-payroll_file
+    $ gem install aub-payroll
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+  file = AUB::Payroll::File.new company_name: "StyroPrints",
+                                date: Date.new(2000, 6, 2),
+                                transactions: [
+                                  { account_number: "001120001146", amount: 540.00 },
+                                  { account_number: "001120001146", amount: 921.00 },
+                                  { account_number: "001120001146", amount: 816.25 },
+                                  { account_number: "001120001146", amount: 500.00 },
+                                  { account_number: "001120001146", amount: 882.50 },
+                                  { account_number: "001120001146", amount: 857.50 },
+                                  { account_number: "001120001146", amount: 1_044.00 },
+                                  { account_number: "001120001146", amount: 1_612.50 }
+                                ]
+
+  File.write "payroll.epf", file.content
+```
 
 ## Development
 
@@ -32,7 +49,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-1. Fork it ( https://github.com/[my-github-username]/aub-payroll_file/fork )
+1. Fork it ( https://github.com/payrollhero/aub-payroll/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)

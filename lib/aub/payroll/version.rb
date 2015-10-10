@@ -1,5 +1,5 @@
-module Aub
-  module PayrollFile
+module AUB
+  module Payroll
     VERSION = "0.1.0"
   end
 end
