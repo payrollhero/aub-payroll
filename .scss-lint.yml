@@ -1,0 +1,25 @@
+exclude:
+ - '*.min.css'
+ - 'vendor/assets/**/*'
+ - 'node_modules/**/*'
+ - 'coverage/**/*'
+
+linters:
+  ColorKeyword:
+    enabled: false
+  Indentation:
+    width: 2
+    character: "space"
+  LeadingZero:
+    style: "include_zero"
+  ColorVariable:
+    enabled: false
+  Comment:
+    enabled: false
+  SelectorDepth:
+    max_depth: 5
+  NestingDepth:
+    max_depth: 5
+  QualifyingElement:
+    allow_element_with_attribute: true
+    allow_element_with_class: true

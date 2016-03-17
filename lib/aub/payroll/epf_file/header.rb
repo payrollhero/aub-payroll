@@ -1,4 +1,4 @@
-require "active_model"
+require 'active_model'
 
 module AUB
   module Payroll
@@ -17,10 +17,9 @@ module AUB
         raise Errors::Invalid, errors.full_messages.to_sentence unless valid?
       end
 
-
       def to_s
         [
-          "BF", # marks the beginning of file
+          'BF', # marks the beginning of file
           formatted_company_name,
           formatted_date,
         ].join
@@ -33,7 +32,7 @@ module AUB
       end
 
       def formatted_date
-        date.strftime "%Y%m%d"
+        date.strftime '%Y%m%d'
       end
     end
   end

@@ -1,0 +1,37 @@
+# Maximum example, remove per project as needed
+engines:
+  scss-lint:
+    enabled: true
+  duplication:
+    enabled: true
+    config:
+      languages:
+        - ruby
+  eslint:
+    enabled: true
+    extensions:
+      - .es6
+      - .js
+  fixme:
+    enabled: true
+  rubocop:
+    enabled: true
+
+ratings:
+  paths:
+  - Gemfile.lock
+  - "lib/**"
+  - "**.erb"
+  - "**.haml"
+  - "**.rb"
+  - "**.rhtml"
+  - "**.slim"
+  - "**.ngslim"
+  - "**.css"
+  - "**.coffee"
+  - "**.js"
+  - "**.es6"
+exclude_paths:
+  - spec/
+  - vendor/
+  - db/schema.rb

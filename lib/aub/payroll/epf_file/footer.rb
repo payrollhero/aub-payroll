@@ -1,4 +1,4 @@
-require "active_model"
+require 'active_model'
 
 module AUB
   module Payroll
@@ -17,24 +17,23 @@ module AUB
         raise Errors::Invalid, errors.full_messages.to_sentence unless valid?
       end
 
-
       def to_s
         [
-          "EF", # marks the end of file
+          'EF', # marks the end of file
           formatted_number_of_records,
           formatted_total_amount,
-          "0" * 27,
+          '0' * 27,
         ].join
       end
 
       private
 
       def formatted_number_of_records
-        "%06d" % number_of_records
+        format '%06d', number_of_records
       end
 
       def formatted_total_amount
-        "%015.2f" % total_amount
+        format '%015.2f', total_amount
       end
     end
   end
