@@ -25,19 +25,19 @@ Or install it yourself as:
 ## Usage
 
 ```ruby
-  file = AUB::Payroll::File.new company_name: "StyroPrints",
-                                date: Date.new(2000, 6, 2),
-                                transactions: [
-                                  { account_number: "001120001146", amount: 540.00 },
-                                  { account_number: "001120001146", amount: 921.00 },
-                                  { account_number: "001120001146", amount: 816.25 },
-                                  { account_number: "001120001146", amount: 500.00 },
-                                  { account_number: "001120001146", amount: 882.50 },
-                                  { account_number: "001120001146", amount: 857.50 },
-                                  { account_number: "001120001146", amount: 1_044.00 },
-                                  { account_number: "001120001146", amount: 1_612.50 }
-                                ]
-
+  file = AUB::Payroll::EPFFile.new company_name: "StyroPrints",
+                                   date: Date.new(2000, 6, 2),
+                                   transactions: [
+                                     { account_number: "001120001146", amount: 540.00 },
+                                     { account_number: "001120001146", amount: 921.00 },
+                                     { account_number: "001120001146", amount: 816.25 },
+                                     { account_number: "001120001146", amount: 500.00 },
+                                     { account_number: "001120001146", amount: 882.50 },
+                                     { account_number: "001120001146", amount: 857.50 },
+                                     { account_number: "001120001146", amount: 1_044.00 },
+                                     { account_number: "001120001146", amount: 1_612.50 }
+                                   ]
+ 
   File.write "payroll.epf", file.content
 ```
 

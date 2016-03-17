@@ -1,0 +1,8 @@
+**/*{.,-}min.js
+
+coverage
+karma.conf.js
+tmp
+node_modules/**
+vendor/assets/bower_components/**
+js_spec

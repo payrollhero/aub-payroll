@@ -2,7 +2,7 @@ require "active_model"
 
 module AUB
   module Payroll
-    class File
+    class EPFFile
       extend ActiveSupport::Autoload
 
       autoload :Header
