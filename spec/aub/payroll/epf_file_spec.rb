@@ -1,7 +1,7 @@
 require "spec_helper"
 
-describe AUB::Payroll::File do
-  subject(:file) {
+describe AUB::Payroll::EPFFile do
+  subject(:epf_file) {
     described_class.new company_name: company_name,
                         date: date,
                         transactions: transactions
@@ -25,5 +25,5 @@ describe AUB::Payroll::File do
 
   let(:expected_file_content) { File.read "spec/fixtures/payroll.epf" }
 
-  it { expect(file.content).to eq expected_file_content }
+  it { expect(epf_file.content).to eq expected_file_content }
 end

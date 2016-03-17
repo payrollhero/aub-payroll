@@ -2,7 +2,7 @@ require "active_model"
 
 module AUB
   module Payroll
-    class File::Footer
+    class EPFFile::Footer
       include ActiveModel::Model
 
       attr_accessor :number_of_records, :total_amount

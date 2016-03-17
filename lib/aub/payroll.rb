@@ -8,6 +8,6 @@ module AUB
     extend ActiveSupport::Autoload
 
     autoload :Errors
-    autoload :File
+    autoload :EPFFile
   end
 end

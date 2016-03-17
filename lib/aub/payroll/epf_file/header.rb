@@ -2,7 +2,7 @@ require "active_model"
 
 module AUB
   module Payroll
-    class File::Header
+    class EPFFile::Header
       include ActiveModel::Model
 
       attr_accessor :company_name, :date

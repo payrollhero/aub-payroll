@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe AUB::Payroll::File::Row do
+describe AUB::Payroll::EPFFile::Row do
   subject(:row) { described_class.new details }
 
   let(:string_version) { row.to_s }

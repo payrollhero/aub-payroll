@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe AUB::Payroll::File::Footer do
+describe AUB::Payroll::EPFFile::Footer do
   subject(:footer) { described_class.new details }
 
   let(:string_version) { footer.to_s }

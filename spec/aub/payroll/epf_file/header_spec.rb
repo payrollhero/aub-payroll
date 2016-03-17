@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe AUB::Payroll::File::Header do
+describe AUB::Payroll::EPFFile::Header do
   subject(:header) { described_class.new details }
 
   let(:string_version) { header.to_s }

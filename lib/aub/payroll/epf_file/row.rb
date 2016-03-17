@@ -2,7 +2,7 @@ require "active_model"
 
 module AUB
   module Payroll
-    class File::Row
+    class EPFFile::Row
       include ActiveModel::Model
 
       attr_accessor :account_number, :amount
