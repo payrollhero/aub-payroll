@@ -24,6 +24,20 @@ Or install it yourself as:
 
 ## Usage
 
+### Configuration
+
+This gem uses wkhtmltopdf, it has been tested against version 0.12.3
+
+If you'r wkhtmltopdf binary is different from the default, you can set it in the gem confuguration as follows:
+
+```ruby
+AUB::Payroll.configure do |c|
+  c.wkhtmltopdf_bin = 'wkhtmltopdf-0.12.3'
+end
+```
+
+### EPF Bank File
+
 ```ruby
   file = AUB::Payroll::EPFFile.new company_name: "StyroPrints",
                                    date: Date.new(2000, 6, 2),
@@ -39,6 +53,41 @@ Or install it yourself as:
                                    ]
  
   File.write "payroll.epf", file.content
+```
+
+### Summary PDF File
+
+```ruby
+  company_info = {
+    name: 'SomeCorp',
+    account_number: '12345678',
+    bank_branch: 'SomeBranch',
+    address1: '123 some address',
+    address2: '543 some more addresss',
+    prepared_by_name_1: 'William Samson',
+    prepared_by_name_2: 'Junior P. Santos',
+    checked_by_name_1: 'Winnie Po',
+    checked_by_name_2: 'Paul Sen',
+  }
+
+  transactions = [
+    {
+      employee_name: 'John Doe',
+      account_number: '12345678',
+      amount: 1235.45,
+    }
+  ] * 47 # ok fine, this is a repeating example, but you'd have real data here :)
+
+  payroll_info = {
+    period_start: Date.new(2010, 1, 1),
+    period_end: Date.new(2010, 1, 31),
+    pay_date: Date.new(2010, 2, 5),
+    total: transactions.sum { |t| t[:amount] },
+  }
+
+  pdf = AUB::Payroll::SummaryFile.generate(company_info: company_info, payroll_info: payroll_info, transactions: transactions)
+   
+  File.write "summary.pdf", pdf
 ```
 
 ## Development

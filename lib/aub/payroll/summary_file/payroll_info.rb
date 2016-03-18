@@ -10,6 +10,7 @@ module AUB
         attribute :total
 
         validates :period_start, :period_end, :pay_date, presence: true
+        validates :total, presence: true, numericality: true
 
       end
     end
