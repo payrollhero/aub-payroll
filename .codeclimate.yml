@@ -35,3 +35,5 @@ exclude_paths:
   - spec/
   - vendor/
   - db/schema.rb
+  - .idea
+  - lib/aub/payroll/summary_file/templates/clear.css

@@ -1,0 +1,75 @@
+doctype html
+html
+  head
+    link(rel='stylesheet' type='text/css' href='style.css')
+  body.body
+
+    div
+      table(cellpadding="0" cellspacing="0")
+        thead
+          tr
+            td.spacer &nbsp;
+            th.employee-name Employee's Name
+            th.account-number Savings Account No.
+            th.amount Amount
+            td.spacer &nbsp;
+        tbody
+          - transactions.each do |transaction|
+            tr
+              td.spacer &nbsp;
+              td.employee-name
+                = transaction.employee_name
+              td.account-number
+                = transaction.account_number
+              td.amount
+                = format_currency(transaction.amount)
+              td.spacer &nbsp;
+        tfoot
+          tr
+            td(colspan=5) &nbsp;
+
+      table.summary(cellpadding="0" cellspacing="0")
+        tbody
+          tr
+            td.spacer &nbsp;
+            td.total-employees
+              ' Total No. Of Employees: #{transactions.length}
+            td.account-number
+            td.amount
+              span.label Total:
+              ' #{format_currency(payroll_info.total)}
+            td.spacer &nbsp;
+          tr
+            td
+            td
+            td
+            td.amount
+              = '='*20
+
+      .nothing-follows
+        ' #{'-'*40} NOTHING FOLLOWS #{'-'*40}
+
+    div.signatures
+      table(cellspacing="0" cellpadding="0")
+        tr
+          td.prepared-by
+            'Prepared By:
+
+            div.signature-line
+            div.name #{company_info.prepared_by_name_1}
+            div.spacer
+
+            div.signature-line
+            div.name #{company_info.prepared_by_name_2}
+            div.name Authorized Signature
+          td
+          td.checked-by
+            'Checked By:
+
+            div.signature-line
+            div.name #{company_info.checked_by_name_1}
+            div.spacer
+
+            div.signature-line
+            div.name #{company_info.checked_by_name_2}
+            div.name Authorized Signature
