@@ -1,0 +1,178 @@
+body {
+  font-family: monospace;
+  margin: 0;
+  padding: 0;
+
+  tr {
+    // the following is a black magic style that fixes an issue with THEAD doing weird things
+    // on following pages, still needed for v0.12.3
+    // see: https://github.com/wkhtmltopdf/wkhtmltopdf/issues/1524
+    page-break-inside: avoid;
+  }
+
+  &.header {
+    font-size: 8pt;
+    margin: 0 20pt;
+    padding-bottom: 1pt;
+
+    .company-info {
+      font-weight: bold;
+      height: 56pt;
+      padding-top: 10pt;
+      text-transform: uppercase;
+
+      .company-name {
+        font-size: 2em;
+        margin-bottom: 0.25em;
+      }
+
+      .address1 {
+        font-size: 1.5em;
+        margin-bottom: 0.25em;
+      }
+
+      .address2 {
+        font-size: 1.5em;
+        font-weight: normal;
+      }
+    }
+
+    .instruction-text {
+      line-height: 150%;
+    }
+  }
+
+  &.footer {
+    font-size: 8pt;
+    margin: 0 20pt;
+
+    .page_number {
+      margin: 0 auto;
+      width: 100pt;
+
+      .page {
+        display: block;
+        float: right;
+      }
+    }
+  }
+
+  &.body {
+    $column1-width: 38%;
+    $column2-width: 28%;
+    $borders: 1pt solid black;
+    padding-top: 1px;
+    //$column2_width: 33%; # its just the leftover of the columns
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+
+      th {
+        font-weight: normal;
+        text-align: left;
+      }
+
+      th,
+      td {
+        font-family: monospace;
+        font-size: 10pt;
+      }
+
+      tbody {
+        td {
+          padding: 2pt 0;
+
+          &.amount {
+            text-align: right;
+          }
+        }
+      }
+
+      td.employee-name {
+        text-transform: uppercase;
+        width: $column1-width;
+      }
+
+      td.account-number {
+        width: $column2-width;
+      }
+
+      td.spacer {
+        width: 20pt;
+      }
+
+      tfoot {
+        tr {
+          border-top: $borders;
+        }
+      }
+
+      thead {
+        th.amount {
+          text-align: right;
+        }
+
+        tr {
+          border-bottom: $borders;
+          border-top: $borders;
+
+          th,
+          td {
+            padding: 0.75em 0;
+          }
+        }
+      }
+
+      &.summary {
+        page-break-inside: avoid;
+
+        td.total-employees {
+          width: $column1-width;
+        }
+
+        td.amount {
+          .label {
+            display: block;
+            float: left;
+          }
+        }
+      }
+    }
+
+    .nothing-follows {
+      margin: 2pt 0;
+      text-align: center;
+    }
+
+    .signatures {
+      padding: 0 20px;
+
+      table {
+        text-transform: uppercase;
+        width: 100%;
+
+        .signature-line {
+          border-bottom: $borders;
+          height: 2em;
+        }
+
+        .name {
+          padding: 0.25em 0;
+        }
+
+        .spacer {
+          height: 2em;
+        }
+
+        .prepared-by {
+          width: 33%;
+        }
+
+        .checked-by {
+          width: 33%;
+        }
+      }
+    }
+  }
+}

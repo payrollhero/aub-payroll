@@ -22,7 +22,16 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'bundler', '~> 1.9'
   spec.add_development_dependency 'rake', '~> 10.0'
   spec.add_development_dependency 'rspec'
+  spec.add_development_dependency 'pry'
+  spec.add_development_dependency 'shotgun'
+  spec.add_development_dependency 'pdf_spec'
 
   spec.add_dependency 'activesupport'
   spec.add_dependency 'activemodel'
+  spec.add_dependency 'pdfkit'
+  spec.add_dependency 'ph_model'
+  spec.add_dependency 'tilt'
+  spec.add_dependency 'slim'
+  spec.add_dependency 'sass'
+  spec.add_dependency 'configurations', '~> 2.2.0'
 end
