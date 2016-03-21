@@ -6,3 +6,8 @@ begin
   task default: :spec
 rescue LoadError
 end
+
+desc "Updates the changelog"
+task :changelog do
+  sh "github_changelog_generator payrollhero/aub-payroll"
+end
