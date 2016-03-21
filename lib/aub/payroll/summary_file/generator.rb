@@ -11,8 +11,6 @@ module AUB
 
         def generate
           html_generator.generate do
-            # system 'open .'
-            # binding.pry
             kit = File.open('body.html', 'r') do |body_file|
               options = {
                 page_size: 'Letter',
