@@ -25,6 +25,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'pry'
   spec.add_development_dependency 'shotgun'
   spec.add_development_dependency 'pdf_spec'
+  spec.add_development_dependency 'github_changelog_generator'
 
   spec.add_dependency 'activesupport'
   spec.add_dependency 'activemodel'
