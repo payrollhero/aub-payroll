@@ -1,5 +1,7 @@
 body {
-  font-family: monospace;
+  $font: "Courier New", courier, monospace;
+
+  font-family: $font;
   margin: 0;
   padding: 0;
 
@@ -75,7 +77,7 @@ body {
 
       th,
       td {
-        font-family: monospace;
+        font-family: $font;
         font-size: 10pt;
       }
 
