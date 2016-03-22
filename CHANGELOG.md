@@ -1,5 +1,8 @@
 # Change Log
 
+## [v1.0.1](https://github.com/payrollhero/aub-payroll/tree/v1.0.1) (2016-03-22)
+[Full Changelog](https://github.com/payrollhero/aub-payroll/compare/v1.0.0...v1.0.1)
+
 ## [v1.0.0](https://github.com/payrollhero/aub-payroll/tree/v1.0.0) (2016-03-21)
 [Full Changelog](https://github.com/payrollhero/aub-payroll/compare/v0.1.0...v1.0.0)
 
