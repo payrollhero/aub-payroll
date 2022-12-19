@@ -11,6 +11,9 @@ module AUB
 
         def generate
           html_generator.generate do
+            # wkhtmltopdf needs qt patches for header and footer options to work,
+            # otherwise silently ignored, and the ubuntu package comes without it
+            # that was the reason for static binary downloads in Docker
             kit = File.open('body.html', 'r') do |body_file|
               options = {
                 page_size: 'Letter',
@@ -20,6 +23,7 @@ module AUB
                 margin_bottom: 5,
                 margin_left: 0,
                 margin_right: 0,
+                enable_local_file_access: true,
               }
               CustomPDFKit.new(body_file, options)
             end
