@@ -10,8 +10,8 @@ module AUB
       autoload :Transaction
       autoload :CustomPDFKit
 
-      def self.generate(*args)
-        Generator.new(*args).generate
+      def self.generate(...)
+        Generator.new(...).generate
       end
 
     end
