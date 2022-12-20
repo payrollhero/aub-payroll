@@ -36,7 +36,21 @@ jobs:
     env:
       BUNDLE_GEMFILE: ${{ github.workspace }}/gemfiles/Gemfile.${{ matrix.gemfile }}
     steps:
-    - run: sudo apt install --yes wkhtmltopdf
+    - name: hack ImageMagick to allow operations on PDF
+      run: sudo sed -i 's/policy\(.*\)"none"\(.*\)PDF/policy\1"read|write|InvokePDFDelegate"\2PDF/' /etc/ImageMagick-6/policy.xml
+    - name: install wkhtmltopdf
+      run: |
+        wget https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6-1/wkhtmltox_0.12.6-1.focal_amd64.deb
+        #wget https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6.1-2/wkhtmltox_0.12.6.1-2.jammy_amd64.deb
+        sudo apt install --yes ghostscript xfonts-75dpi xfonts-base
+        ar x wkhtmltox_0.12.6-1.focal_amd64.deb
+        tar xvf data.tar.xz
+        #sudo dpkg -i wkhtmltox_0.12.6.1-2.jammy_amd64.deb # wkhtmltox_0.12.6-1.focal_amd64.deb
+        echo "fully uncompressed"
+        sudo mv ./usr/local/bin/* /usr/bin/
+        sudo mv ./usr/local/lib/* /usr/lib/
+        wkhtmltopdf 2>&1 | grep -q 'Reduced Functionality' && exit 11
+        wkhtmltopdf 2>&1 | grep 'wkhtmltopdf 0.12.6 (with patched qt)'
     - uses: actions/checkout@v2
     - uses: ruby/setup-ruby@v1
       with:
