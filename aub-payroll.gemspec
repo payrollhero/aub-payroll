@@ -19,7 +19,7 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
 
-  spec.add_development_dependency 'bundler', '~> 1.9'
+  spec.add_development_dependency 'bundler', '> 1.9'
   spec.add_development_dependency 'rake', '~> 10.0'
   spec.add_development_dependency 'rspec'
   spec.add_development_dependency 'pry'
@@ -27,8 +27,8 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'pdf_spec'
   spec.add_development_dependency 'github_changelog_generator'
 
-  spec.add_dependency 'activesupport'
-  spec.add_dependency 'activemodel'
+  spec.add_dependency 'activesupport', '> 5.0'
+  spec.add_dependency 'activemodel', '> 5.0'
   spec.add_dependency 'pdfkit'
   spec.add_dependency 'ph_model'
   spec.add_dependency 'tilt'
