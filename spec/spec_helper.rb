@@ -1,8 +1,6 @@
 $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 require 'aub/payroll'
 
-require 'pry'
-
 require 'pdf_spec'
 
 if ENV['WKHTMLTOPDF_CMD']

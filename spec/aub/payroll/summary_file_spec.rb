@@ -37,11 +37,8 @@ describe AUB::Payroll::SummaryFile do
 
     example do
       pdf = described_class.generate(company_info: company_info, payroll_info: payroll_info, transactions: transactions)
-      unless ENV['CI']
-        # do not run in CI because of subtle rendering differences
-        expected_pdf = File.read("spec/fixtures/summary.pdf")
-        expect(pdf).to have_same_pdf_appearance_as(expected_pdf)
-      end
+      expected_pdf = File.read("spec/fixtures/summary.pdf")
+      expect(pdf).to have_same_pdf_appearance_as(expected_pdf)
     end
 
   end
